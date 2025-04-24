@@ -18,7 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
             membershipType: membershipType
         };
 
-        console.log('Participant Data:', participantData);
-
+        fetch('http://localhost:3000/api/participants', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(participantData) 
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            console.log('Success:', data); 
+        })
+        .catch((error) => {
+            console.error('Error:', error); 
+        });
     });
-});
+})
