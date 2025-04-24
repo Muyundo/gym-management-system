@@ -78,8 +78,45 @@
                         </div></div></div></div>
             <div class="content">
                 <div class="container-fluid">
-                    <p>Your main content will go here.</p>
-                </div></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Register New Participant</h3>
+                                </div>
+                                <form id="participant-registration-form">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number</label>
+                                            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email Address (Optional)</label>
+                                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="membershipType">Membership Type</label>
+                                            <select class="form-control" id="membershipType">
+                                                <option value="monthly" selected>Monthly Subscription</option>
+                                                <option value="daily">Daily Payment</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Register Participant</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>                </div></div>
             </div>
         <footer class="main-footer">
             <div class="float-right d-none d-sm-inline">
