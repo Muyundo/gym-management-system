@@ -5,26 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Management System - Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css"> <style>
         body {
             font-family: sans-serif;
-            margin: 0; /* Remove default body margin */
-            display: flex; /* Enable flexbox for layout */
-            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
         }
 
         .sidebar {
-            background-color: #343a40; /* Dark background for sidebar */
+            background-color: #343a40;
             color: white;
-            width: 200px; /* Fixed width for the sidebar */
+            width: 200px;
             padding-top: 20px;
-            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            flex-shrink: 0;
+            transition: width 0.3s ease; /* Smooth transition for expand/minimize */
+        }
+
+        .sidebar.collapsed {
+            width: 60px;
+        }
+
+        .sidebar .menu-toggle {
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .sidebar.collapsed .menu-toggle {
+            text-align: center;
+            padding: 15px 0;
         }
 
         .sidebar h2 {
             padding: 10px 20px;
             margin-bottom: 20px;
             border-bottom: 1px solid #555;
+        }
+
+        .sidebar.collapsed h2 {
+            display: none;
         }
 
         .sidebar ul {
@@ -40,13 +60,54 @@
             color: white;
         }
 
+        .sidebar.collapsed ul li a span {
+            display: none; /* Hide text when collapsed */
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar.collapsed ul li a i {
+            margin-right: 0;
+            text-align: center;
+            width: 100%;
+            font-size: 1.2em;
+        }
+
         .sidebar ul li a:hover {
             background-color: #495057;
         }
 
         .content {
-            flex-grow: 1; /* Allow content to take remaining width */
+            flex-grow: 1;
             padding: 20px;
+        }
+
+        .dashboard-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .dashboard-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .dashboard-card p {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-bottom: 0;
         }
 
         .dashboard-button {
@@ -66,20 +127,47 @@
 </head>
 <body>
     <div class="sidebar">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
         <h2>Gym Options</h2>
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="index.html">Register Participant</a></li>
-            <li><a href="#">View Participants</a></li>
-            <li><a href="#">Record Payment</a></li>
-            <li><a href="#">Manage Users</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="index.html"><i class="fas fa-user-plus"></i> <span>Register Participant</span></a></li>
+            <li><a href="#"><i class="fas fa-users"></i> <span>View Participants</span></a></li>
+            <li><a href="#"><i class="fas fa-dollar-sign"></i> <span>Record Payment</span></a></li>
+            <li><a href="#"><i class="fas fa-user-cog"></i> <span>Manage Users</span></a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
         </ul>
     </div>
     <div class="content">
-        <h1>Welcome to the Gym Management System</h1>
-        <p>Use the menu on the left to navigate.</p>
+        <h1>Dashboard</h1>
+        <div class="dashboard-info">
+            <div class="dashboard-card">
+                <h3>Total Participants</h3>
+                <p>150</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Total Monthly Subscribers</h3>
+                <p>120</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Today's Check-ins</h3>
+                <p>35</p>
+            </div>
+        </div>
         <a href="index.html" class="dashboard-button">Register New Participant</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html>
