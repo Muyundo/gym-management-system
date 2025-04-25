@@ -4,16 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Management System - Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        .dashboard-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; /* Make the container take up the full viewport height */
-            text-align: center;
+        body {
+            font-family: sans-serif;
+            margin: 0; /* Remove default body margin */
+            display: flex; /* Enable flexbox for layout */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
         }
+
+        .sidebar {
+            background-color: #343a40; /* Dark background for sidebar */
+            color: white;
+            width: 200px; /* Fixed width for the sidebar */
+            padding-top: 20px;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar h2 {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #555;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #495057;
+        }
+
+        .content {
+            flex-grow: 1; /* Allow content to take remaining width */
+            padding: 20px;
+        }
+
         .dashboard-button {
             padding: 15px 30px;
             font-size: 1.2em;
@@ -30,8 +65,20 @@
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
+    <div class="sidebar">
+        <h2>Gym Options</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="index.html">Register Participant</a></li>
+            <li><a href="#">View Participants</a></li>
+            <li><a href="#">Record Payment</a></li>
+            <li><a href="#">Manage Users</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+    <div class="content">
         <h1>Welcome to the Gym Management System</h1>
+        <p>Use the menu on the left to navigate.</p>
         <a href="index.html" class="dashboard-button">Register New Participant</a>
     </div>
 </body>
